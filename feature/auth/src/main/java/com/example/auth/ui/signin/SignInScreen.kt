@@ -13,6 +13,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.auth.navigation.Screen
 import com.example.ui.components.JelloButtonPrimary
 import com.example.ui.components.JelloButtonSosmedRow
 import com.example.ui.components.JelloEditText
@@ -23,7 +26,9 @@ import com.example.ui.components.JelloTextRegularWithClick
 import com.example.ui.components.JelloTextViewRow
 
 @Composable
-fun SignInScreen() {
+fun SignInScreen(
+    navController: NavController = rememberNavController()
+) {
     Column(
         modifier = Modifier
             .padding(vertical = 16.dp)
@@ -44,7 +49,9 @@ fun SignInScreen() {
         JelloTextRegularWithClick(
             text = "Please fill E-mail & password to login your app account.",
             textClick = "\nSign Up",
-            onClick = {},
+            onClick = {
+                      navController.navigate(Screen.AuthSignUp.route)
+            },
             modifier = Modifier.padding(horizontal = 16.dp)
         )
         Spacer(modifier = Modifier.height(25.dp))
