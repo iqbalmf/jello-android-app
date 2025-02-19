@@ -24,8 +24,10 @@ import androidx.compose.ui.unit.dp
 import com.example.ui.R
 import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
+import com.example.ui.components.JelloImageViewPhotoRounded
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.StrongBlue
+import com.example.ui.theme.VeryLightGray
 
 @Composable
 fun HomeScreen() {
@@ -97,11 +99,24 @@ data class ProductItem(
 @Composable
 fun SubItemList(subItems: List<String>){
     LazyRow(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(start = 16.dp)
     ) {
         items(subItems) {item ->
-            Card {
-                JelloImageViewClick()
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(end = 16.dp, bottom = 16.dp)
+                    .clickable {
+
+                    },
+                colors = CardDefaults.cardColors(
+                    containerColor = VeryLightGray
+                )
+            ) {
+                JelloImageViewPhotoRounded(
+                    url = item,
+                    description = "Image ke $item"
+                )
             }
         }
     }
