@@ -24,6 +24,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.ui.theme.Purple40
 import net.iqbalfauzan.home.ui.home.HomeScreen
+import net.iqbalfauzan.home.ui.product.ProductScreen
 
 @Composable
 fun MainScreen() {
